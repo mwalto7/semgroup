@@ -50,7 +50,7 @@ func main() {
         })
     }
 
-    // Wait for all goroutines to finish, propogating the first non-nil error (if-any).
+    // Wait for all goroutines to finish, propagation the first non-nil error (if-any).
     if err := sg.Wait(); err != nil {
         log.Fatal(err)
     }
