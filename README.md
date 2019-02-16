@@ -20,11 +20,11 @@ package main
 
 import (
     "context"
-	"fmt"
-	"log"
-	"runtime"
-	"time"
-    
+    "fmt"
+    "log"
+    "runtime"
+    "time"
+
     "github.com/mwalto7/semgroup"
 )
 
