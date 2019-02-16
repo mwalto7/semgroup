@@ -51,7 +51,7 @@ func (sg *Group) Wait() error {
 // a new goroutine. If a non-nil error is returned when acquiring the
 // semaphore, the error is returned and the group is cancelled.
 //
-// See errgroup for details on error handling and propogation.
+// See errgroup for details on error handling and propagation.
 func (sg *Group) Go(f func() error) {
 	err := sg.sem.Acquire(sg.ctx, 1)
 	sg.eg.Go(func() error {
