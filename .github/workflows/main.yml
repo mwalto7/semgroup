@@ -33,5 +33,6 @@ jobs:
           path: ./src/github.com/${{ github.repository }}
       - name: Test
         run: |
-          go get -t -d -u -v golang.org/x/sync/...
-          go test -v -race ./semgroup/semgroup_test.go
+          go get -t -d golang.org/x/sync/errgroup
+          go get -t -d golang.org/x/sync/semaphore
+          go test -v -race .
