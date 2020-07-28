@@ -15,7 +15,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Test
-        run: go test -v -race ./semgroup_test.go
+        run: go test -v -race ./...
 
   test-gopath:
     env:
@@ -33,6 +33,5 @@ jobs:
           path: ./src/github.com/${{ github.repository }}
       - name: Test
         run: |
-          go get -t -d golang.org/x/sync/errgroup
-          go get -t -d golang.org/x/sync/semaphore
-          go test -v -race .
+          go get -t -d -u -v golang.org/x/sync/...
+          go test -v -race ./...
