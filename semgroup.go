@@ -40,6 +40,7 @@ type Group struct {
 	ctx context.Context
 	eg  *errgroup.Group
 	sem *semaphore.Weighted
+	n   int64
 }
 
 // WithContext returns a new Group with a weighted semaphore with
@@ -50,15 +51,18 @@ type Group struct {
 // If the given semaphore weight n is less than or equal to zero,
 // runtime.NumCPU()*2 is used.
 func WithContext(ctx context.Context, n int64) (*Group, context.Context) {
-	if ctx == nil {
-		ctx = context.Background()
-	}
 	if n <= 0 {
 		n = int64(runtime.NumCPU() * 2)
 	}
-	sg := &Group{sem: semaphore.NewWeighted(n)}
+	sg := &Group{sem: semaphore.NewWeighted(n), n: n}
 	sg.eg, sg.ctx = errgroup.WithContext(ctx)
 	return sg, sg.ctx
+}
+
+// Weight returns weight of the Group's semaphore, or the maximum allowed number
+// of in-flight goroutines.
+func (sg *Group) Weight() int64 {
+	return sg.n
 }
 
 // Wait blocks until all function calls from the Go method have returned, then
