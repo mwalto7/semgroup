@@ -34,4 +34,4 @@ jobs:
       - name: Test
         run: |
           go get -t -d -u -v golang.org/x/sync/...
-          go test -v -race ./semgroup_test.go
+          go test -v -race ./semgroup/semgroup_test.go
