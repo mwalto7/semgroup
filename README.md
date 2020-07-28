@@ -1,6 +1,6 @@
 # semgroup
 
-[![GoDoc](https://godoc.org/github.com/mwalto7/semgroup?status.svg)](https://godoc.org/github.com/mwalto7/semgroup)
+[![GoDoc](https://godoc.org/github.com/mwalto7/semgroup?status.svg)](https://pkg.go.dev/github.com/mwalto7/semgroup?tab=doc)
 [![Go Report Card](https://goreportcard.com/badge/github.com/mwalto7/semgroup)](https://goreportcard.com/report/github.com/mwalto7/semgroup)
 
 `semgroup` provides a simple wrapper around an [error group](https://godoc.org/golang.org/x/sync/errgroup)
