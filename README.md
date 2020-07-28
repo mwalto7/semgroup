@@ -1,6 +1,7 @@
 # semgroup
 
 [![Test](https://github.com/mwalto7/semgroup/workflows/Test/badge.svg?branch=master)](https://github.com/mwalto7/semgroup/actions)
+[![codecov](https://codecov.io/gh/mwalto7/semgroup/branch/master/graph/badge.svg)](https://codecov.io/gh/mwalto7/semgroup)
 [![Go Report Card](https://goreportcard.com/badge/github.com/mwalto7/semgroup)](https://goreportcard.com/report/github.com/mwalto7/semgroup)
 [![GoDoc](https://godoc.org/github.com/mwalto7/semgroup?status.svg)](https://pkg.go.dev/github.com/mwalto7/semgroup?tab=doc)
 
