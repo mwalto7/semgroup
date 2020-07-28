@@ -2,16 +2,12 @@ name: Test
 on: [push, pull_request]
 jobs:
   test:
-    strategy:
-      matrix:
-        go-version: [1.13.x, 1.14.x]
-        platform: [ubuntu-latest, macos-latest, windows-latest]
-    runs-on: ${{ matrix.platform }}
+    runs-on: ubuntu-latest
     steps:
       - name: Install Go
         uses: actions/setup-go@v2
         with:
-          go-version: ${{ matrix.go-version }}
+          go-version: 1.14.x
 
       - name: Checkout code
         uses: actions/checkout@v2
@@ -19,9 +15,11 @@ jobs:
       - name: Test
         run: go test -v -race -coverprofile=coverage.txt -covermode=atomic ./...
 
-      - name: Code coverage
+      - name: Codecov
         uses: codecov/codecov-action@v1.0.12
         with:
+          name: semgroup
+          token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage.txt
           fail_ci_if_error: true
 
@@ -36,10 +34,12 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: 1.14.x
+
       - name: Checkout code
         uses: actions/checkout@v2
         with:
           path: ./src/github.com/${{ github.repository }}
+
       - name: Test
         run: |
           go get -t -d -u -v golang.org/x/sync/...
