@@ -1,7 +1,8 @@
 # semgroup
 
-[![GoDoc](https://godoc.org/github.com/mwalto7/semgroup?status.svg)](https://pkg.go.dev/github.com/mwalto7/semgroup?tab=doc)
+[![Test](https://github.com/mwalto7/semgroup/workflows/Test/badge.svg?branch=master)](https://github.com/mwalto7/semgroup/actions)
 [![Go Report Card](https://goreportcard.com/badge/github.com/mwalto7/semgroup)](https://goreportcard.com/report/github.com/mwalto7/semgroup)
+[![GoDoc](https://godoc.org/github.com/mwalto7/semgroup?status.svg)](https://pkg.go.dev/github.com/mwalto7/semgroup?tab=doc)
 
 `semgroup` provides a simple wrapper around an [error group](https://godoc.org/golang.org/x/sync/errgroup)
 that adds the ability to limit the maximum number of in-flight goroutines working on a group of tasks
